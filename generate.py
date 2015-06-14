@@ -32,8 +32,12 @@ if __name__ == "__main__":
     
     global template
     with open("template.html") as f:
-        template = f.readlines()
+        template = f.read()
     
     for file in files:
         with open(file) as f:
             print("Reading " + file)
+            doc = f.read()
+            content = template.replace("%CONTENT%", doc).replace("%TITLE%", file)
+            
+            print(content)
