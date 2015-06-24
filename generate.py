@@ -39,8 +39,8 @@ if __name__ == "__main__":
             print("Reading " + file)
             doc = f.read()
             
-            start = doc.find("<div id=\"content\">")
-            end = doc.find("</div>", start) + 6
-            content = template.replace("%CONTENT%", doc[start:end]).replace("%TITLE%", file)
+            start = doc.find("<!-- CONTENT BEGIN -->")
+            end = doc.find("<!-- CONTENT END -->")
+            content = template.replace("%CONTENT%", doc[start:len("<!-- CONTENT END -->")]).replace("%TITLE%", file)
             
             print(content)
