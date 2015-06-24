@@ -37,12 +37,12 @@ if __name__ == "__main__":
     for file in files:
         with open(file) as f:
             print("Reading " + file)
-            doc = f.read()
+            doc = f.read().replace("\n", "\n\t\t")
             
             title = file.replace(".html", "")[file.rfind(os.sep) + 1:len(file)]
             
             start = doc.find("<!-- CONTENT BEGIN -->")
             end = doc.find("<!-- CONTENT END -->")
-            content = template.replace("%CONTENT%", doc[start:len("<!-- CONTENT END -->")]).replace("%TITLE%", title)
+            content = template.replace("%CONTENT%", doc[start:]).replace("%TITLE%", title)
             
             print(content)
