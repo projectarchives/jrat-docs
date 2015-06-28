@@ -53,7 +53,6 @@ if __name__ == "__main__":
            
             print(content)
             
-        if True:
-            with open(file, "w") as f:
-                f.write(content)
+        with open(file, "w") as f:
+            f.write(content)
                 
