@@ -49,7 +49,7 @@ if __name__ == "__main__":
             
             start = doc.find(start_tag)
             end = doc.find(end_tag) + len(end_tag)
-            content = template.replace("%CONTENT%", doc[start:end]).replace("%TITLE%", title)
+            content = template.replace("%CONTENT%", doc[start:end]).replace("%TITLE%", title.title())
            
             print(content)
             
