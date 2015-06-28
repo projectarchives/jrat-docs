@@ -22,7 +22,7 @@ def index(source):
             if os.path.isfile(filename):
                 relative = os.path.join(os.path.relpath(root, relroot), file)      
                 
-                if relative.endswith(".html") and not list == "index.html":
+                if relative.endswith(".html") and not "template.html" in relative and not "index.html" in relative:
                     list.append(relative)
                 
     return list
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     with open("template.html") as f:
         template = f.read()
     
-    for file in files:
+    for file in files:        
         with open(file) as f:
             print("Reading " + file)
             doc = f.read().replace("\n", "\n\t\t")
@@ -44,5 +44,10 @@ if __name__ == "__main__":
             start = doc.find("<!-- CONTENT BEGIN -->")
             end = doc.find("<!-- CONTENT END -->")
             content = template.replace("%CONTENT%", doc[start:]).replace("%TITLE%", title)
-            
+                        
             print(content)
+            
+        if True:
+            with open(file, "w") as f:
+                f.write(content)
+                
