@@ -27,6 +27,12 @@ def index(source):
                 
     return list
 
+global start_tag
+global end_tag
+
+start_tag = "<!-- CONTENT BEGIN -->"
+end_tag = "<!-- CONTENT END-->"
+
 if __name__ == "__main__":
     files = index(folder);
     
@@ -41,10 +47,10 @@ if __name__ == "__main__":
             
             title = file.replace(".html", "")[file.rfind(os.sep) + 1:len(file)]
             
-            start = doc.find("<!-- CONTENT BEGIN -->")
-            end = doc.find("<!-- CONTENT END -->")
+            start = doc.find(start_tag)
+            end = doc.find(end_tag) + len(end_tag)
             content = template.replace("%CONTENT%", doc[start:end]).replace("%TITLE%", title)
-                        
+           
             print(content)
             
         if True:
