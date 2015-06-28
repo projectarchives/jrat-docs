@@ -31,7 +31,7 @@ global start_tag
 global end_tag
 
 start_tag = "<!-- CONTENT BEGIN -->"
-end_tag = "<!-- CONTENT END-->"
+end_tag = "<!-- CONTENT END -->"
 
 if __name__ == "__main__":
     files = index(folder);
