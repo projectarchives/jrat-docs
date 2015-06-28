@@ -22,7 +22,7 @@ def index(source):
             if os.path.isfile(filename):
                 relative = os.path.join(os.path.relpath(root, relroot), file)      
                 
-                if relative.endswith(".html") and not relative.startswith("."):
+                if relative.endswith(".html") and not list == "index.html":
                     list.append(relative)
                 
     return list
